@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HeroeModel } from '../models/heroe.model';
-import { map } from 'rxjs';
+import { map, delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroesService {
 
-  private url = 'https://login-app-8a910-default-rtdb.firebaseio.com';
+  private url = 'https://crud-aa6ea-default-rtdb.firebaseio.com/';
 
   constructor( private http: HttpClient ) { }
 
@@ -49,7 +49,8 @@ export class HeroesService {
   getHeroes(){
     return this.http.get(`${ this.url }/heroes.json`)
     .pipe(
-      map( this.crearArreglo)
+      map( this.crearArreglo),
+      delay(0)
     );
 
   }
