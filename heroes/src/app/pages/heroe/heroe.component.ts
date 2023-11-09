@@ -20,7 +20,7 @@ export class HeroeComponent implements OnInit{
   guardar( form: NgForm){
 
     if (form.invalid) {
-      console.log('formulario no valido')
+      console.log('formulario no valido');
       return;
     }
 
